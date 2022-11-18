@@ -7,8 +7,8 @@ export default class Car {
   color: string;
   status?: boolean | undefined;
   buyValue: number;
-  private doorsQty: number;
-  private seatsQty: number;
+  readonly doorsQty: number;
+  readonly seatsQty: number;
 
   constructor(car: ICar) {
     this.id = car.id;
