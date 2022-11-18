@@ -1,5 +1,5 @@
 import Car from '../Domains/Car';
-import { ICar } from '../Interfaces/ICar';
+import ICar from '../Interfaces/ICar';
 
 export default class CarService {
   private _repository;
