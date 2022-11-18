@@ -1,11 +1,10 @@
 import Car from '../Domains/Car';
-import SaveCar from '../Domains/useCases';
 import { ICar } from '../Interfaces/ICar';
 
 export default class CarService {
   private _repository;
 
-  constructor(repository: SaveCar) {
+  constructor(repository: any) {
     this._repository = repository;
   }
 

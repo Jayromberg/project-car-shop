@@ -13,6 +13,7 @@ class CarODM extends AbstractODM<ICar> {
       doorsQty: { type: Number, required: true },
       seatsQty: { type: Number, required: true },
     });
+    
     super(schema, 'Car');
   }
 }
