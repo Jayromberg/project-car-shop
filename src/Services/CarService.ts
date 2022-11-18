@@ -15,7 +15,7 @@ export default class CarService {
     return null;
   }
 
-  async register(car: ICar) {
+  async register(car: ICar) {    
     const response = await this._repository.save(car);
     return this.createCarDomain(response);
   }
