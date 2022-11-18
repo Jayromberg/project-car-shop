@@ -15,7 +15,7 @@ export default class Car {
     this.model = car.model;
     this.year = car.year;
     this.color = car.color;
-    this.status = car.status || false;
+    this.status = car.status;
     this.buyValue = car.buyValue;
     this.doorsQty = car.doorsQty;
     this.seatsQty = car.seatsQty;
