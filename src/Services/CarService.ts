@@ -8,9 +8,9 @@ export default class CarService {
     this._repository = repository;
   }
 
-  private createCarDomain(car: ICar | null): ICar | null {
-    if (car) {
-      return new Car(car);
+  private createCarDomain(data: ICar | null): Car | null {
+    if (data) {
+      return new Car(data);
     }
     return null;
   }
