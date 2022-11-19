@@ -8,11 +8,8 @@ export default class CarService {
     this._repository = repository;
   }
 
-  private createCarDomain(data: ICar | null): Car | null {
-    if (data) {
-      return new Car(data);
-    }
-    return null;
+  private createCarDomain(data: ICar): Car {
+    return new Car(data);
   }
 
   async register(car: ICar) {    
