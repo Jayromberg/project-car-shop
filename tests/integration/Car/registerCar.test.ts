@@ -13,8 +13,4 @@ describe('Endpoint de registro de carro', function () {
     expect(httpResponse.body).to.be.deep.equal(carOutput);
     sinon.restore();
   });
- 
-  // afterEach(function () {
-  //   sinon.restore();
-  // });  
 });
