@@ -1,6 +1,7 @@
 import Car from '../Domains/Car';
 import ICar from '../Interfaces/ICar';
 import { SaveCar, GetAll, GetById } from '../Domains/UseCases';
+import HttpException from '../Utils/HttpException';
 
 export default class CarService {
   private _repository;
@@ -9,11 +10,10 @@ export default class CarService {
     this._repository = repository;
   }
 
-  private createCarDomain(data: ICar | null): Car | null {
+  private createCarDomain(data: ICar | null): Car {
     if (!data) {
-      return null;
+      throw new HttpException(404, 'Car not found');
     }
-
     return new Car(data);
   }
 

@@ -8,7 +8,6 @@ class ErrorHandler {
     res: Response,
     next: NextFunction,
   ) {
-    console.log(error);
     const { status, message } = error as HttpException;
     res.status(status || 500).json({ message });
     next();
