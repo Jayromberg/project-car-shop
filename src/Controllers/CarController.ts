@@ -31,8 +31,6 @@ class CarController {
 
     try {
       const newCar = await this.carService.register(car);
-      console.log(newCar);
-      
       return this.res.status(201).json(newCar);
     } catch (error) {
       this.next(error);
