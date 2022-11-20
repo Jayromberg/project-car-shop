@@ -1,12 +1,12 @@
 import Car from '../Domains/Car';
 import ICar from '../Interfaces/ICar';
-import { SaveCar, GetAll, GetById } from '../Domains/UseCases';
+import { Save, GetAll, GetById } from '../Domains/UseCases';
 import HttpException from '../Utils/HttpException';
 
 export default class CarService {
   private _repository;
 
-  constructor(repository: SaveCar & GetAll & GetById) {
+  constructor(repository: Save & GetAll & GetById) {
     this._repository = repository;
   }
 
@@ -24,7 +24,7 @@ export default class CarService {
 
   async getAll() {
     const response = await this._repository.getAll();
-    const carsArray = response.map((car) => this.createCarDomain(car));
+    const carsArray = response.map((car: ICar) => this.createCarDomain(car));
     return carsArray;
   }
 
