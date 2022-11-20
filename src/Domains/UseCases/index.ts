@@ -1,9 +1,11 @@
-import Save from './save.car';
-import GetAll from './getAll.car';
-import GetById from './get.car';
+import Save from './save';
+import GetAll from './getAll';
+import GetById from './get';
+import Update from './Update';
 
 export {
   Save,
   GetAll,
   GetById,
+  Update,
 };

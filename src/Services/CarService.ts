@@ -1,12 +1,12 @@
 import Car from '../Domains/Car';
 import ICar from '../Interfaces/ICar';
-import { Save, GetAll, GetById } from '../Domains/UseCases';
+import { Save, GetAll, GetById, Update } from '../Domains/UseCases';
 import HttpException from '../Utils/HttpException';
 
 export default class CarService {
   private _repository;
 
-  constructor(repository: Save & GetAll & GetById) {
+  constructor(repository: Save & GetAll & GetById & Update) {
     this._repository = repository;
   }
 
@@ -30,6 +30,11 @@ export default class CarService {
 
   async getById(id: string) {
     const response = await this._repository.getById(id);
+    return this.createCarDomain(response);
+  }
+
+  async update(id: string, data: ICar) {
+    const response = await this._repository.update(id, data);
     return this.createCarDomain(response);
   }
 }
