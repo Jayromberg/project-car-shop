@@ -1,7 +1,7 @@
-enum MotoCategory { 
+enum MotorcycleCategory { 
   street = 'Street',
   custom = 'Custom',
   trail = 'Trail',
 }
 
-export default MotoCategory;
+export default MotorcycleCategory;
