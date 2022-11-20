@@ -1,8 +1,8 @@
 import CarODM from '../Models/CarODM';
-import { Save, GetAll, GetById, Update } from '../Domains/UseCases';
+import { SaveCar, GetAllCars, GetByCarId, UpdateCar } from '../Domains/UseCases/car';
 import ICar from '../Interfaces/ICar';
 
-export default class CarRepository implements Save, GetAll, GetById, Update {
+export default class CarRepository implements SaveCar, GetAllCars, GetByCarId, UpdateCar {
   private _model = new CarODM();
   
   async save(car: ICar) {

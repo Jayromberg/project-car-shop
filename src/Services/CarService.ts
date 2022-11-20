@@ -1,12 +1,12 @@
 import Car from '../Domains/Car';
 import ICar from '../Interfaces/ICar';
-import { Save, GetAll, GetById, Update } from '../Domains/UseCases';
+import { SaveCar, GetAllCars, GetByCarId, UpdateCar } from '../Domains/UseCases/car';
 import HttpException from '../Utils/HttpException';
 
 export default class CarService {
   private _repository;
 
-  constructor(repository: Save & GetAll & GetById & Update) {
+  constructor(repository: SaveCar & GetAllCars & GetByCarId & UpdateCar) {
     this._repository = repository;
   }
 

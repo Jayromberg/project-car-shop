@@ -9,6 +9,7 @@ class CarController {
   private next: NextFunction;
   private carRepository: CarRepository;
   private carService: CarService;
+  private car: ICar;
 
   constructor(req: Request, res: Response, next: NextFunction) {
     this.req = req;
@@ -16,10 +17,7 @@ class CarController {
     this.next = next;
     this.carRepository = new CarRepository();
     this.carService = new CarService(this.carRepository);
-  }
-
-  public async create() {
-    const car: ICar = {
+    this.car = {
       model: this.req.body.model,
       year: this.req.body.year,
       color: this.req.body.color,
@@ -28,9 +26,11 @@ class CarController {
       doorsQty: this.req.body.doorsQty,
       seatsQty: this.req.body.seatsQty, 
     };
+  }
 
+  public async create() {
     try {
-      const newCar = await this.carService.register(car);
+      const newCar = await this.carService.register(this.car);
       return this.res.status(201).json(newCar);
     } catch (error) {
       this.next(error);
@@ -59,18 +59,9 @@ class CarController {
 
   public async update() {
     const { id } = this.req.params;
-    const car: ICar = {
-      model: this.req.body.model,
-      year: this.req.body.year,
-      color: this.req.body.color,
-      status: this.req.body.status || false,
-      buyValue: this.req.body.buyValue,
-      doorsQty: this.req.body.doorsQty,
-      seatsQty: this.req.body.seatsQty, 
-    };
-    
+
     try {
-      const response = await this.carService.update(id, car);
+      const response = await this.carService.update(id, this.car);
       return this.res.status(200).json(response);
     } catch (error) {
       this.next(error);
