@@ -3,7 +3,9 @@ import {
   models,
   Schema,
   model,
+  isValidObjectId,
 } from 'mongoose';
+import HttpException from '../Utils/HttpException';
   
 abstract class AbstractODM<T> {
   protected model: Model<T>;
@@ -18,6 +20,15 @@ abstract class AbstractODM<T> {
   
   public async create(obj: T): Promise<T> {
     return this.model.create({ ...obj });
+  }
+
+  public async findAll(): Promise<T[]> {
+    return this.model.find();
+  }
+
+  public async findById(id: string): Promise<T | null> {
+    if (!isValidObjectId(id)) throw new HttpException(422, 'Invalid mongo id');
+    return this.model.findById(id);
   }
 }
   
