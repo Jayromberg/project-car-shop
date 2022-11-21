@@ -1,5 +1,6 @@
 import Car from '../../src/Domains/Car';
 import ICar from '../../src/Interfaces/ICar';
+import HttpException from '../../src/Utils/HttpException';
 
 const carInput: ICar = {
   model: 'Marea',
@@ -22,7 +23,10 @@ const carOutput: Car = new Car({
   seatsQty: 5,
 });
 
+const genericError : HttpException = new HttpException(500, 'Internal Server Error');
+
 export {
   carInput,
   carOutput,
+  genericError,
 };

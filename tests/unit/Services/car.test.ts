@@ -6,7 +6,7 @@ import CarService from '../../../src/Services/CarService';
 
 import { carInput, carOutput } from '../../Utils/mock.car';
 
-describe('Deveria registrar um carro no banco', function () {
+describe('SERVICE - Deveria registrar um carro no banco', function () {
   it('Deveria registrar um carro com SUCESSO', async function () {
     sinon.stub(Model, 'create').resolves(carOutput);
 

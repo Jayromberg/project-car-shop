@@ -6,7 +6,7 @@ import CarRepository from '../../../src/Repositories/CarRepository';
 import { carInput, carOutput } from '../../Utils/mock.car';
 import HttpException from '../../../src/Utils/HttpException';
 
-describe('Deveria executar o registro do carro no banco', function () {
+describe('MODEL - Deveria executar o registro do carro no banco', function () {
   it('Deveria executar o registro do carro com SUCESSO', async function () {
     sinon.stub(Model, 'create').resolves(carOutput);
 
