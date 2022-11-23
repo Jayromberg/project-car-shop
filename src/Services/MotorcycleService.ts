@@ -4,13 +4,15 @@ import {
   SaveMotorcycles, 
   GetAllMotorcycles,
   GetByMotorcycleId,
+  UpdateMotorcycle,
 } from '../Domains/UseCases/motorcycle';
 import HttpException from '../Utils/HttpException';
 
 export default class MotorcycleService {
   private _repository;
 
-  constructor(repository: SaveMotorcycles & GetAllMotorcycles & GetByMotorcycleId) {
+  constructor(repository: SaveMotorcycles & GetAllMotorcycles & GetByMotorcycleId
+  & UpdateMotorcycle) {
     this._repository = repository;
   }
 
@@ -35,6 +37,11 @@ export default class MotorcycleService {
 
   async getById(id: string) {
     const response = await this._repository.getById(id);
+    return this.createCarDomain(response);
+  }
+
+  async update(id: string, data: IMotorcycle) {
+    const response = await this._repository.update(id, data);
     return this.createCarDomain(response);
   }
 }
