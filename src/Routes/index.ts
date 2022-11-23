@@ -24,9 +24,19 @@ routes.get(
   (req, res, next) => new CarController(req, res, next).findAll(),
 );
 
+routes.get(
+  '/motorcycles/:id',
+  (req, res, next) => new MotorcycleController(req, res, next).findById(),
+);
+
 routes.post(
   '/motorcycles',
   (req, res, next) => new MotorcycleController(req, res, next).create(),
+);
+
+routes.get(
+  '/motorcycles',
+  (req, res, next) => new MotorcycleController(req, res, next).findAll(),
 );
 
 export default routes;
