@@ -41,9 +41,8 @@ Instale o Car Shop com npm
 
   - ✨ **Dica:** A extensão `Remote - Containers` (que estará na seção de extensões recomendadas do VS Code) é indicada para que você possa desenvolver sua aplicação no container Docker direto no VS Code, como você faz com seus arquivos locais.
 
-  <img src="public/remote-container.png" width="800px" >
-
 </details>
+
 ## Documentação da API
 
 #### Registra o carro
