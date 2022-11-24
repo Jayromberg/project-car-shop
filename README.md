@@ -14,8 +14,8 @@ Instale o Car Shop com npm
   npm run dev
 ```
 
-- ✨ **Dica:** Para rodar o projeto desta forma, obrigatoriamente você deve ter o `node` instalado em seu computador.
-- ✨ **Dica:** O avaliador espera que a versão do `node` utilizada seja a 16.
+- ✨ Para rodar o projeto desta forma, obrigatoriamente você deve ter o `node` instalado em seu computador.
+- ✨ A versão do `node` utilizada é a 16.
 
 
 <details>
